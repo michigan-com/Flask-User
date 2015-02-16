@@ -13,7 +13,7 @@ class TokenManager(object):
     def setup(self, secret):
         """ Create a cypher to encrypt IDs and a signer to sign tokens."""
         # Create cypher to encrypt IDs
-        key = secret + bytes('0123456789abcdef')  # ensure >=16 characters
+        key = secret + bytes('0123456789abcdef', 'utf-8')  # ensure >=16 characters
         sixteen_byte_key = key[0:16]  # get first 16 characters
         self.cipher = AES.new(sixteen_byte_key)
 
